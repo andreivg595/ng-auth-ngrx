@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import { User } from "src/app/models/user";
-import { logInFailure, logInSuccess } from "../actions/auth.actions";
+import { logInFailure, logInSuccess, signUpFailure, signUpSuccess } from "../actions/auth.actions";
 
 export interface AuthState {
     isAuthenticated: boolean; // is a user authenticated?
@@ -26,6 +26,21 @@ export const authReducer = createReducer(
         errorMessage: null
     })),
     on(logInFailure, (state, { error }) => ({
+        ...state,
+        isAuthenticated: false,
+        user: initialState.user,
+        errorMessage: error.message
+    })),
+    on(signUpSuccess, (state, { email, token }) => ({
+        ...state,
+        isAuthenticated: true,
+        user: {
+            email: email,
+            token: token
+        },
+        errorMessage: null
+    })),
+    on(signUpFailure, (state, { error }) => ({
         ...state,
         isAuthenticated: false,
         user: initialState.user,

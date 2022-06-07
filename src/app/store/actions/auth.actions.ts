@@ -15,3 +15,18 @@ export const logInFailure = createAction(
     '[Auth API] Log In Failure',
     props<{ readonly error: any }>()
 );
+
+export const signUp = createAction(
+    '[Signup] Sign Up',
+    props<{ readonly email: string; readonly password: string }>()
+);
+
+export const signUpSuccess = createAction(
+    '[Auth API] Sign Up Success',
+    props<{ readonly email: string; readonly token: string }>()
+);
+
+export const signUpFailure = createAction(
+    '[Auth API] Sign Up Failure',
+    props<{ readonly error: any }>()
+);

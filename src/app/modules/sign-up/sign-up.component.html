@@ -3,7 +3,7 @@
       <h1>Sign up</h1>
       <hr>
       
-      <app-user-form></app-user-form>
+      <app-user-form (userFormEvent)="onUserFormEvent($event)"></app-user-form>
 
       <p>
         <span>Already have an account?&nbsp;</span>

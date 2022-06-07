@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { select, Store } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { logIn } from 'src/app/store/actions/auth.actions';
-import { getUser } from 'src/app/store/selectors/auth.selectors';
 
 @Component({
   selector: 'app-log-in',
