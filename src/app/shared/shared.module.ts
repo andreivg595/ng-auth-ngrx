@@ -1,23 +1,27 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { UserFormComponent } from './user-form/user-form.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    UserFormComponent
+  ],
   imports: [
     CommonModule,
-    HttpClientModule,
+    RouterModule,
     ReactiveFormsModule
   ], 
   exports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    UserFormComponent
   ]
 })
 export class SharedModule {
-  static forRoot(): ModuleWithProviders<any> {
+  static forRoot(): ModuleWithProviders<SharedModule> {
     return {
         ngModule: SharedModule,
         providers: []

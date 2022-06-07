@@ -2,20 +2,22 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { 
+  {
     path: '',
-    loadChildren: () => import('./modules/landing/landing-routing.module').then(m => m.LandingRoutingModule),
-    pathMatch: 'full'
+    loadChildren: () => import('./modules/landing/landing.module').then(m => m.LandingModule)
   },
-  { 
+  {
     path: 'log-in',
-    loadChildren: () => import('./modules/log-in/log-in.module').then(m => m.LogInModule),
-    pathMatch: 'full'
+    loadChildren: () => import('./modules/log-in/log-in.module').then(m => m.LogInModule)
   },
   { 
     path: 'sign-up',
-    loadChildren: () => import('./modules/sign-up/sign-up-routing.module').then(m => m.SignUpRoutingModule),
-    pathMatch: 'full'
+    loadChildren: () => import('./modules/sign-up/sign-up.module').then(m => m.SignUpModule)
+  },
+  {
+    path: '',
+    redirectTo: '',
+    pathMatch: 'full',
   },
   { path: '**', redirectTo: '/' }
 ];
