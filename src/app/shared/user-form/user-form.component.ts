@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-user-form',
@@ -7,6 +7,8 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./user-form.component.scss']
 })
 export class UserFormComponent implements OnInit {
+
+  @Output() userFormEvent = new EventEmitter<FormGroup>();
 
   form = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
@@ -19,7 +21,7 @@ export class UserFormComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.form.value)
+    this.userFormEvent.emit(this.form);
   }
 
 }
