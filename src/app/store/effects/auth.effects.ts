@@ -7,6 +7,7 @@ import {
     logIn, 
     logInFailure, 
     logInSuccess, 
+    logOut, 
     signUp, 
     signUpFailure, 
     signUpSuccess
@@ -59,6 +60,17 @@ export class AuthEffects {
             ofType(logInSuccess, signUpSuccess),
             tap((user) => {
                 localStorage.setItem('token', user.token);
+                this.router.navigateByUrl('/');
+            })
+        ),
+        { dispatch: false }
+    );
+
+    readonly logOut$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(logOut),
+            tap(() => {
+                localStorage.removeItem('token');
                 this.router.navigateByUrl('/');
             })
         ),

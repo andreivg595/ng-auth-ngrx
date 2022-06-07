@@ -3,6 +3,12 @@
       <h1>Sign up</h1>
       <hr>
       
+      <div *ngIf="errorMessage$ | async">
+        <div class="alert alert-danger" role="alert">
+          {{ errorMessage$ | async }}
+        </div>
+      </div>
+      
       <app-user-form (userFormEvent)="onUserFormEvent($event)"></app-user-form>
 
       <p>

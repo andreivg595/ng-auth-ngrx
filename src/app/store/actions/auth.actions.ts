@@ -30,3 +30,5 @@ export const signUpFailure = createAction(
     '[Auth API] Sign Up Failure',
     props<{ readonly error: any }>()
 );
+
+export const logOut = createAction('[Logout] Log Out');

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { logIn } from 'src/app/store/actions/auth.actions';
+import { getErrorMessage } from 'src/app/store/selectors/auth.selectors';
 
 @Component({
   selector: 'app-log-in',
@@ -9,6 +10,8 @@ import { logIn } from 'src/app/store/actions/auth.actions';
   styleUrls: ['./log-in.component.scss']
 })
 export class LogInComponent implements OnInit {
+
+  readonly errorMessage$ = this.store.pipe(select(getErrorMessage));
 
   constructor(private readonly store: Store<any>) { }
 
