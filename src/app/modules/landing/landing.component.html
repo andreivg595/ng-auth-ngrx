@@ -19,5 +19,16 @@
             </div>
         </ng-template>
         
+
+        <div class="card mt-3" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Current State</h5>
+              <ul>
+                <li><strong>isAuthenticated</strong> - {{ isAuthenticated$ | async }}</li>
+                <li><strong>user.email</strong> - {{ (user$ | async)?.email || 'null' }}</li>
+                <li><strong>user.token</strong> - {{ (user$ | async)?.token || 'null' }}</li>
+              </ul>
+            </div>
+        </div>
     </div>
 </div>

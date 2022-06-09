@@ -25,3 +25,19 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Fake Backend
+
+The app itself is a basic Node/Express application with the following routes:\
+\
+http://localhost:1337/ping 	    GET 	Sanity Check\
+http://localhost:1337/register 	POST 	Register a new user\
+http://localhost:1337/login 	POST 	Log a user in\
+http://localhost:1337/status 	GET 	Get user status\
+\
+$ git clone https://github.com/testdrivenio/fake-token-api \
+$ cd fake-token-api\
+$ npm install\
+$ npm start\
+\
+It only works with test@test.com - test
